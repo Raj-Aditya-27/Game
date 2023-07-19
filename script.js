@@ -1,5 +1,14 @@
 score = 0;
 cross = true;
+
+
+audiogo = new Audio('music/gameover.wav');
+audio = new Audio('music/in-game-music.mp3');
+setTimeout(()=>{
+    audio.play();
+},3);
+
+
 document.onkeydown = function (e) {
     console.log("key code is: ", e.keyCode);
 
@@ -22,10 +31,14 @@ document.onkeydown = function (e) {
     }
 }
 
+
+
 setInterval(() => {
     meu = document.querySelector(".meu");
     gameover = document.querySelector(".gameover");
     obstacle = document.querySelector(".obstacle");
+
+
 
     dx = parseInt(window.getComputedStyle(meu, null).getPropertyValue("left"));
     dy = parseInt(window.getComputedStyle(meu, null).getPropertyValue("top"));
@@ -35,12 +48,17 @@ setInterval(() => {
     ofsetX = Math.abs(dx - ox);
     offsetY = Math.abs(dy - oy);
 
+
+
+
     if (ofsetX < 80 && offsetY < 40) {
         gameover.style.visibility = "visible";
         obstacle.classList.remove("obsticalhero");
-
+        audiogo.play();
+       audio.pause();
     }
     else if (ofsetX < 145 && cross) {
+        audio.play();
         score = score + 1;
         updatescore(score);
         cross = false;
@@ -55,6 +73,9 @@ setInterval(() => {
 
     }
 }, 10);
+
+
+
 
 function updatescore(score) {
     scorecount.innerHTML = "Your Score: " + score;
