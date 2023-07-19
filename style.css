@@ -24,11 +24,12 @@ body {
     height: 161px;
     position: absolute;
     bottom: 0;
+    left: 30px;
 }
 
 .obstacle {
     width: 92px;
-    height: 154px;
+    height: 144px;
     background-image: url(pics/mewtwo-mega-y-removebg-preview-removebg-preview.png);
     background-size: cover;
     position: absolute;
@@ -37,7 +38,7 @@ body {
 }
 
 .animatemeu {
-    animation: meu 0.6s linear;
+    animation: meu 0.7s linear;
 }
 .obsticalhero{
     animation:  obsticalhero 7s linear infinite;
@@ -48,8 +49,9 @@ body {
         bottom: 0;
     }
     50% {
-        bottom: 200px; /* Added 'bottom' property here */
+        bottom: 500px; /* Added 'bottom' property here */
     }
+
     100% {
         bottom: 0;
     }

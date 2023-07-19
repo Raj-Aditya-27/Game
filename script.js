@@ -9,6 +9,11 @@ document.onkeydown = function (e) {
             meu.classList.remove("animatemeu");
         }, 500);
     }
+    if (e.keyCode == 39) {
+        meu = document.querySelector(".meu");
+        muex = parseInt(window.getComputedStyle(meu, null).getPropertyValue("left"));
+        meu.style.left = muex + 112 + "px"; // Fix the character movement to the right
+    }
 
 }
 
@@ -26,7 +31,7 @@ setInterval(() => {
         ofsetX= Math.abs(dx-ox);
         offsetY=Math.abs(dy-oy);
 
-        if(ofsetX<95 && offsetY<52)
+        if(ofsetX<95 && offsetY<40)
         {
             gameover.style.visibility="visible";
             obstacle.classList.remove("obsticalhero");
