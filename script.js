@@ -1,6 +1,7 @@
+
 score = 0;
 cross = true;
-
+let gameOver=false;//New Addition
 
 audiogo = new Audio('music/gameover.wav');
 audio = new Audio('music/in-game-music.mp3');
@@ -11,6 +12,8 @@ setTimeout(()=>{
 
 document.onkeydown = function (e) {
     console.log("key code is: ", e.keyCode);
+    
+		if(gameOver===true) return;//New Addition
 
     if (e.keyCode == 38) {
         meu = document.querySelector(".meu");
@@ -40,10 +43,10 @@ setInterval(() => {
 
 
 
-    dx = parseInt(window.getComputedStyle(meu, null).getPropertyValue("left"));
-    dy = parseInt(window.getComputedStyle(meu, null).getPropertyValue("top"));
-    ox = parseInt(window.getComputedStyle(obstacle, null).getPropertyValue("left"));
-    oy = parseInt(window.getComputedStyle(obstacle, null).getPropertyValue("top"));
+    let dx = parseInt(window.getComputedStyle(meu, null).getPropertyValue("left"));
+    let dy = parseInt(window.getComputedStyle(meu, null).getPropertyValue("top"));
+    let ox = parseInt(window.getComputedStyle(obstacle, null).getPropertyValue("left"));
+    let oy = parseInt(window.getComputedStyle(obstacle, null).getPropertyValue("top"));
 
     ofsetX = Math.abs(dx - ox);
     offsetY = Math.abs(dy - oy);
@@ -51,13 +54,16 @@ setInterval(() => {
 
 
 
-    if (ofsetX < 80 && offsetY < 40) {
+    if (ofsetX < 80 && offsetY < 20) {
+    		ox=(dx+ox)/2;//New Addition
+        dx=ox;//New Addition
         gameover.style.visibility = "visible";
         obstacle.classList.remove("obsticalhero");
         audiogo.play();
        audio.pause();
+       gameOver=true;//New Addition
     }
-    else if (ofsetX < 145 && cross) {
+    else if (ox<=0 && cross) {
         audio.play();
         score = score + 1;
         updatescore(score);
