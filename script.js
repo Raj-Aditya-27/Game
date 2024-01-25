@@ -37,7 +37,7 @@ document.onkeydown = function (e) {
 // Game loop using setInterval for collision detection and scoring
 
 setInterval(() => {
-     // Selecting necessary elements
+     // Selecting necessary element
     meu = document.querySelector(".meu");
     gameover = document.querySelector(".gameover");
     obstacle = document.querySelector(".obstacle");
