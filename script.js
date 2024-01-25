@@ -2,7 +2,7 @@
 score = 0;
 cross = true;
 let gameOver=false;//New Addition
-
+// Initial delay and play background music
 audiogo = new Audio('music/gameover.wav');
 audio = new Audio('music/in-game-music.mp3');
 setTimeout(()=>{
@@ -34,14 +34,15 @@ document.onkeydown = function (e) {
     }
 }
 
-
+// Game loop using setInterval for collision detection and scoring
 
 setInterval(() => {
+     // Selecting necessary elements
     meu = document.querySelector(".meu");
     gameover = document.querySelector(".gameover");
     obstacle = document.querySelector(".obstacle");
 
-
+ // Getting positions of player character and obstacle
 
     let dx = parseInt(window.getComputedStyle(meu, null).getPropertyValue("left"));
     let dy = parseInt(window.getComputedStyle(meu, null).getPropertyValue("top"));
@@ -52,9 +53,11 @@ setInterval(() => {
     offsetY = Math.abs(dy - oy);
 
 
-
+// Collision detection
 
     if (ofsetX < 80 && offsetY < 20) {
+         // Player character collided with the obstacle
+
     		ox=(dx+ox)/2;//New Addition
         dx=ox;//New Addition
         gameover.style.visibility = "visible";
@@ -64,6 +67,7 @@ setInterval(() => {
        gameOver=true;//New Addition
     }
     else if (ox<=0 && cross) {
+        // Player character successfully crossed the obstacle
         audio.play();
         score = score + 1;
         updatescore(score);
@@ -71,6 +75,7 @@ setInterval(() => {
         setTimeout(() => {
             cross = true;
         }, 1000);
+        // Adjusting obstacle animation duration for increased difficulty
         setTimeout(() => {
             aniDur = parseFloat(window.getComputedStyle(obstacle, null).getPropertyValue('animation-duration'));
             newDur = aniDur - 0.3;
@@ -80,7 +85,7 @@ setInterval(() => {
     }
 }, 10);
 
-
+// Function to update and display the score
 
 
 function updatescore(score) {
