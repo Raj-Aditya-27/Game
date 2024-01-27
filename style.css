@@ -1,12 +1,14 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-     /* Styling for the body, including background color and overflow property */
-    background-color: #f64343;
+    /* Styling for the body, including background color and overflow property */
     overflow: hidden;
+    width: 100vw;
+    height: 100vh;
 }
 
 .gamecontainer {
@@ -16,13 +18,14 @@ body {
     background-image: url(https://i.postimg.cc/J46k5qQd/background.jpg);
     background-repeat: no-repeat;
     background-size: 117vw 53vw;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
 }
+
 /* Styling for the player character and obstacle elements */
 
 .meu {
-     /* Styling for the player character with background image, size, and position */
+    /* Styling for the player character with background image, size, and position */
 
     /* background-image: url(pics/character-removebg-preview-removebg-preview.png); */
     background-image: url(https://i.postimg.cc/Hkr7ZyZW/character-removebg-preview-removebg-preview.png);
@@ -31,7 +34,7 @@ body {
     width: 285px;
     height: 161px;
     position: absolute;
-    bottom: 0;
+    bottom: 2vh;
     left: 30px;
 }
 
@@ -44,68 +47,81 @@ body {
     background-image: url(https://i.postimg.cc/T3B5Z3FV/mewtwo-mega-y-removebg-preview-removebg-preview.png);
     background-size: cover;
     position: absolute;
-    bottom: 0;
+    bottom: 2vh;
     left: 80vw;
 }
+
 /* Animation for player character movement and obstacle appearance */
 
 .animatemeu {
-    
+
     animation: meu 0.7s linear;
 }
-.obsticalhero{
-    animation:  obsticalhero 7s linear infinite;
+
+.obsticalhero {
+    animation: obsticalhero 7s linear infinite;
 }
-  /* Keyframes for player character movement animation */
-    @keyframes meu {
+
+/* Keyframes for player character movement animation */
+@keyframes meu {
     0% {
         bottom: 0;
     }
+
     50% {
-        bottom: 500px; /* Added 'bottom' property here */
+        bottom: 500px;
+        /* Added 'bottom' property here */
     }
 
     100% {
         bottom: 0;
     }
-}/* Keyframes for obstacle animation */
-@keyframes obsticalhero{
+}
+
+/* Keyframes for obstacle animation */
+@keyframes obsticalhero {
     0% {
-        
+
 
         left: 100vw;
     }
+
     100% {
         left: -5vw;
     }
-}/* Styling for the game over text, initially hidden */
+}
 
-.gameover{
+/* Styling for the game over text, initially hidden */
+
+.gameover {
     visibility: hidden;
-    position: relative;
-    top:90px;
-    font-size: 53px;
+    font-size: 3rem;
     text-align: center;
     color: aliceblue;
     font-family: sans-serif;
-} /* Styling for the score display */
- #scorecount{
-    font-size: 25px;
-    color: #54212f;
-    font-weight: bold;
-    position: absolute;
-    left: auto;
-    right: 44%;
-    top: 31px;
-    border: 2px solid black;
-    padding: 10px;
-    font-family: 'Ubuntu', sans-serif;
-    border-radius: 10px;
-
 }
 
 /* Styling for the score display */
-#scorecount{
-   
-     color: rgb(202, 129, 129);
+#scorecount {
+    font-size:2rem;
+    color: rgb(202, 129, 129);
+    font-weight: bold;
+    padding: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    border-radius: 10px;
+}
+
+.board{
+    width: 100vw;
+    height: 35vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media screen and (max-width:1300px) {
+    .gamecontainer {
+        background-size: cover;
+    }
 }
