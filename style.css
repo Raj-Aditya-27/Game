@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -31,11 +33,14 @@ body {
     background-image: url(https://i.postimg.cc/Hkr7ZyZW/character-removebg-preview-removebg-preview.png);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 285px;
-    height: 161px;
+    background-position: center;
+
+    width: 92px;
+    height: 200px;
     position: absolute;
-    bottom: 2vh;
-    left: 30px;
+    bottom: -6vh;
+    left: 20px;
+    border: 1px solid y;
 }
 
 .obstacle {
@@ -55,7 +60,7 @@ body {
 
 .animatemeu {
 
-    animation: meu 0.7s linear;
+    animation: meu 1s linear;
 }
 
 .obsticalhero {
@@ -95,33 +100,54 @@ body {
 
 .gameover {
     visibility: hidden;
-    font-size: 3rem;
+    font-size: 4rem;
     text-align: center;
     color: aliceblue;
-    font-family: sans-serif;
+
 }
 
 /* Styling for the score display */
 #scorecount {
-    font-size:2rem;
+    font-size: 2rem;
     color: rgb(202, 129, 129);
     font-weight: bold;
     padding: 10px;
-    font-family: 'Ubuntu', sans-serif;
     border-radius: 10px;
 }
 
-.board{
+.board {
     width: 100vw;
-    height: 35vh;
+    height: 55vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+.board-inside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (max-width:1300px) {
     .gamecontainer {
         background-size: cover;
     }
+}
+
+#play {
+    width: 10vw;
+    height: 5vh;
+    font-size: larger;
+    border-radius: 30px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    visibility: visible;
+}
+
+#play:hover {
+    cursor: pointer;
 }
